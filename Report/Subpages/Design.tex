@@ -9,6 +9,7 @@ The modification only allows for reads in the repository, the implementation can
 
 Two sequence diagram for the back-end can be seen in figure \ref{fig:MonitorSeq} and \ref{fig:SWTTransponderSeq}. Where the repository-pattern is used to connect the monitor to the datasource, in this case the provided .dll.
 
+The Console Application follows the Single Responsibility to certain degree, where our Notification- and MonitoredTrackInfoDisplayer only has one responsibilty; Formatting data to construct a List of strings. The way those two classes are implemented involves The Open Close principle aswell. They both uses an interface IRenderable; It opens several advantages towards test-, maintain- and extendability, and aswell a easier code to read. 
 \begin{figure}
 	\centering
 	\includegraphics[width=1.0\linewidth]{Images/MonitorSeq}
@@ -24,6 +25,7 @@ Two sequence diagram for the back-end can be seen in figure \ref{fig:MonitorSeq}
 \end{figure}
 
 \subsection{Implementation}
+\\is this nhow i make comments???
 
 It works
 

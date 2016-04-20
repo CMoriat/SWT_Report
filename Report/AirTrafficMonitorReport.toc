@@ -5,9 +5,9 @@
 \contentsline {section}{\numberline {\color {RoyalBlue}2}Design}{3}{section.0.2}
 \contentsline {subsection}{\numberline {\color {RoyalBlue}2.1}Design considerations}{3}{subsection.0.2.1}
 \contentsline {subsection}{\numberline {\color {RoyalBlue}2.2}Implementation}{3}{subsection.0.2.2}
-\contentsline {section}{\numberline {\color {RoyalBlue}3}Test}{4}{section.0.3}
-\contentsline {subsection}{\numberline {\color {RoyalBlue}3.1}Strategies}{4}{subsection.0.3.1}
-\contentsline {section}{\numberline {\color {RoyalBlue}4}Teamwork}{4}{section.0.4}
-\contentsline {subsection}{\numberline {\color {RoyalBlue}4.1}Strategies}{4}{subsection.0.4.1}
-\contentsline {subsection}{\numberline {\color {RoyalBlue}4.2}Continuous integration}{4}{subsection.0.4.2}
-\contentsline {section}{\numberline {\color {RoyalBlue}5}Conclusion}{4}{section.0.5}
+\contentsline {section}{\numberline {\color {RoyalBlue}3}Test}{6}{section.0.3}
+\contentsline {subsection}{\numberline {\color {RoyalBlue}3.1}Strategies}{6}{subsection.0.3.1}
+\contentsline {section}{\numberline {\color {RoyalBlue}4}Teamwork}{6}{section.0.4}
+\contentsline {subsection}{\numberline {\color {RoyalBlue}4.1}Strategies}{6}{subsection.0.4.1}
+\contentsline {subsection}{\numberline {\color {RoyalBlue}4.2}Continuous integration}{6}{subsection.0.4.2}
+\contentsline {section}{\numberline {\color {RoyalBlue}5}Conclusion}{6}{section.0.5}
