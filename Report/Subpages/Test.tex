@@ -2,10 +2,11 @@
 	This section describes how testing supported the software development of the ATM system.
 	
 	\subsection{Unit Test}
-	The software development was closely followed by unit tests to ensure the code reacted as intended and as the requirements demanded.\\
+	The software development was closely followed by unit tests to ensure the code reacted as intended and as the requirements demanded.
 	
-	As reviewed in the I4SWT course multiple practices for writing unit tests exist. In this assignment both \emph{Test Driven Development (TDD)} and \emph{Feature Driven Development (FDD)} were used.\\
-	TDD is an agile practice where test should be written before the implementation. This ensures that no code which has not been tested is written. The development cycle tend to be short and the practice encourages simple design in the code.\\
+	As reviewed in the I4SWT course multiple practices for writing unit tests exist. In this assignment both \emph{Test Driven Development (TDD)} and \emph{Feature Driven Development (FDD)} were used.
+	
+	TDD is an agile practice where test should be written before the implementation. This ensures that no code which has not been tested is written. The development cycle tend to be short and the practice encourages simple design in the code.
 	
 	FDD is the opposite of TDD in where the implementation is written before the tests. Thus the functionality is in focus and the programmers can later decide the satisfying amount of tests. This practice was used more extensively than the TDD as it is less time consuming to implement the features. A drawback was that the focus does not lay with the tests, which could be written at such late time where finding a bug could be a larger inconvenience, than if it was found during the writing of the feature.
 	
@@ -23,9 +24,11 @@
 	\end{figure}
 	
 	\pagebreak
-	%%Nedenstående er ikke rettet / CM
-	The Dependency tree shows the integration and interdependence of our different classes. We have chosen to use a bottom-up integration. The choice behind this is that a lot of the integration test lies in the unit test for the ATM. 
+	
+	The Dependency tree shows the integration and inter-dependence of the different classes. We have chosen to use a bottom-up integration. The choice behind this is that a lot of the integration test lies in the unit test for the ATM. 
+	
+	Since the provided .dll provides 'random' data, the choice was made to not including this in integrations-tests, since it could be a couple of minutes before a separation happened, creating long test-suite execution times. 
 	
 	\subsection{Jenkins}
-	Jenkins is a program that ensures CI on our repository. When committing code to the repository  Jenkins will first run a build that runs all the unit tests, if this succeeds, Jenkins will subsequent run a project which tests all integration test. Once approved it will finally run a project that calculates the code metrics for the project.
+	Jenkins\footnote{\url{https://jenkins.io/}} is a server-side software package that enabled continuous integration(CI) on a given project. On the ATM, when code gets pushed to the repository Jenkins will first run a build \& all of the unit-tests, if this succeeds, Jenkins will subsequent run integration-tests. Once approved it will finally run code metrics, where both maintainability-index and FxCop violations will calculated.
 	
