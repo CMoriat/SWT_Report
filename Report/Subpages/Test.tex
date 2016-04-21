@@ -1,16 +1,20 @@
 	\section{Test}
+	This section describes how testing supported the software development of the ATM system.
 	
 	\subsection{Unit Test}
-	There are parallel with code development been written tests to see if the code reacted as intended. \\
+	The software development was closely followed by unit tests to ensure the code reacted as intended and as the requirements demanded.\\
 	
-	\noindent Jonas and Cecilie chose to use TDD to the development of their code, so there are tests written before the code itself was written, to ensure that all code was covered by the test from the start. \\
+	As reviewed in the I4SWT course multiple practices for writing unit tests exist. In this assignment both \emph{Test Driven Development (TDD)} and \emph{Feature Driven Development (FDD)} were used.\\
+	TDD is an agile practice where test should be written before the implementation. This ensures that no code which has not been tested is written. The development cycle tend to be short and the practice encourages simple design in the code.\\
 	
-	\noindent Ao and Morten decided to develop code first, then write their test . This was the choice as there were some difficulties with TDD for them. It worked fine. However, this probably took a little longer than if you had used TDD, as there were some areas of the code you forgot to get tested at the start \\
+	FDD is the opposite of TDD in where the implementation is written before the tests. Thus the functionality is in focus and the programmers can later decide the satisfying amount of tests. This practice was used more extensively than the TDD as it is less time consuming to implement the features. A drawback was that the focus does not lay with the tests, which could be written at such late time where finding a bug could be a larger inconvenience, than if it was found during the writing of the feature.
+	
+	\subsection{Integration Test}
+	Integration testing is the process where the individual software modules are combined and tested as a group. This is to be done after the unit tests have passed. 
+	
+	Preparation for integration testing lies in documenting the modules in a dependency tree as shown in figure \ref{fig:Dependencytree}. 
 	
 	
-	\subsection{Integrations Test}
-	Integration testing is used to ensure that all our classes work togethrer fter we have been in two teams and made code to the ATM.\\
-	Below are our dependency tree for our ATM system
 	\begin{figure}
 		\centering
 		\includegraphics[width=1.0\linewidth]{"Images/Dependencytree"}
@@ -19,10 +23,9 @@
 	\end{figure}
 	
 	\pagebreak
-	
-	\noindent After making all of our unit tests we designed a dependency tree to find out how we should write our integration test. The Dependency tree shows the integration and interdependence of our different classes. We have chosen to use a bottom-up integration. The choice behind this is that a lot of our test and integration test lies in our unit test. Therefore, all the lower classes is tested and work properly before being coupled to a different class.
+	%%Nedenstående er ikke rettet / CM
+	The Dependency tree shows the integration and interdependence of our different classes. We have chosen to use a bottom-up integration. The choice behind this is that a lot of the integration test lies in the unit test for the ATM. 
 	
 	\subsection{Jenkins}
-	There has previously been described how CI fungrerer as a group tool. \\
-	The way we have chosen to use it is via Jenkins, a program that ensures CI on our repository. When comiting code to the repository  Jenkins will first run a build that looks at all the unit tests, if this goes well, Jenkins will subsequent run a project that tests all integration test, once approved it will finally run a project that looks at our code metrics.
-	\clearpage
+	Jenkins is a program that ensures CI on our repository. When committing code to the repository  Jenkins will first run a build that runs all the unit tests, if this succeeds, Jenkins will subsequent run a project which tests all integration test. Once approved it will finally run a project that calculates the code metrics for the project.
+	
