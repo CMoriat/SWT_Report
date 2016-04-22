@@ -10,7 +10,7 @@ Another heavily used pattern is the Observer Pattern\footnote{\url{https://msdn.
 
 Two sequence-diagrams for the back-end can be seen in figure \ref{fig:MonitorSeq} and \ref{fig:SWTTransponderSeq}. Where the repository-pattern is used to connect the two sequence-diagrams, thereby connection the monitor to the data-source, in this case the provided .dll.
 
-The Console Application follows the Single Responsibility to certain degree, where our Notification- and MonitoredTrackInfoDisplayer only has one responsibilty; Formatting data to construct a List of strings. The way those two classes are implemented involves The Open Close principle aswell. They both uses an interface IRenderable; It opens several advantages towards test-, maintain- and extendability, and aswell a easier code to read. 
+The Console Application follows the Single Responsibility to certain degree, where our Notification- and MonitoredTrackInfoDisplayer only has one responsibilty; Formatting data to construct a List of strings. The way those two classes are implemented involves The Open Close principle aswell. They both uses an interface IRenderable; It opens several advantages towards test-, maintain- and extendability, and aswell a easier code to read. We chose to give the UI an Observer Pattern where it only refreshed the rendering when there is a new Airspacelog event.  
 \begin{figure}
 	\centering
 	\includegraphics[width=1.0\linewidth]{Images/MonitorSeq}
@@ -26,10 +26,10 @@ The Console Application follows the Single Responsibility to certain degree, whe
 \end{figure}
 
 \subsection{Implementation}
-\\is this nhow i make comments???
 
 The modification made to the repository-pattern only allows for reads in the repository, the interface can be seen in the 'IReadOnlyRepository', then a implementation of the interface can be seen in 'ReadOnlyListRepository', allowing reads from an in-memory list, but it could also be a database or another data-source.
 
 A choice was made to only include the provided .dll in the UI project, thereby keeping the core-project clean of any unneeded dependencies. So if a change were to be made in the .dll, the core does not need to be recompiled and thereby avoiding redeployment to any of clients distributed that may not need the update. 
 
+% I don't think there is much to write for UI, unless we want redundant text from Design and Considuration
 \clearpage
