@@ -1,13 +1,14 @@
 \section{Design}
-As earlier stated the design of this solution was given thought as it had to be extensible and adaptive to changes in requirements. This section describes the process of obtaining such design and the outcome of the reflections.
+As earlier stated the design of this solution was given thought as it had to be extensible and adaptive to changes in requirements and allow for easy testing. This section describes the process of obtaining such design and the outcome of the reflections.
 
 \subsection{Design considerations}
-An effort were made to design the system based on the five basic principles of object-oriented programming and design, SOLID. These principles applied to a system tend to make this maintainable and extendable.
+An effort was made to design the system based on the five basic principles of object-oriented programming and design, SOLID. These principles applied to a system tend to make this maintainable and extendable.
 
 To further create abstraction from the provided .DLL and follow the Dependency-Inversion principle, the ATM makes use of a modified repository-pattern\footnote{\url{https://msdn.microsoft.com/en-us/library/ff649690.aspx}}. This allows for a quick change in the data-source to a database for example.
-The modification only allows for reads in the repository, the implementation can be seen in the 'IReadOnlyRepository<TModel>' interface.
 
-Two sequence diagram for the back-end can be seen in figure \ref{fig:MonitorSeq} and \ref{fig:SWTTransponderSeq}. Where the repository-pattern is used to connect the monitor to the datasource, in this case the provided .dll.
+Another heavily used pattern is the Observer Pattern\footnote{\url{https://msdn.microsoft.com/en-us/library/ee850490.aspx}}, it is in charge of notifying observers about data change, making it possible to only update the user-interface whenever new data is present.
+
+Two sequence-diagrams for the back-end can be seen in figure \ref{fig:MonitorSeq} and \ref{fig:SWTTransponderSeq}. Where the repository-pattern is used to connect the two sequence-diagrams, thereby connection the monitor to the data-source, in this case the provided .dll.
 
 The Console Application follows the Single Responsibility to certain degree, where our Notification- and MonitoredTrackInfoDisplayer only has one responsibilty; Formatting data to construct a List of strings. The way those two classes are implemented involves The Open Close principle aswell. They both uses an interface IRenderable; It opens several advantages towards test-, maintain- and extendability, and aswell a easier code to read. 
 \begin{figure}
@@ -27,8 +28,8 @@ The Console Application follows the Single Responsibility to certain degree, whe
 \subsection{Implementation}
 \\is this nhow i make comments???
 
-It works
+The modification made to the repository-pattern only allows for reads in the repository, the interface can be seen in the 'IReadOnlyRepository', then a implementation of the interface can be seen in 'ReadOnlyListRepository', allowing reads from an in-memory list, but it could also be a database or another data-source.
 
-
+A choice was made to only include the provided .dll in the UI project, thereby keeping the core-project clean of any unneeded dependencies. So if a change were to be made in the .dll, the core does not need to be recompiled and thereby avoiding redeployment to any of clients distributed that may not need the update. 
 
 \clearpage
