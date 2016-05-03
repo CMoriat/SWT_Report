@@ -4,32 +4,31 @@ As earlier stated the design of this solution was given thought as it had to be 
 \subsection{Design considerations}
 An effort was made to design the system based on the five basic principles of object-oriented programming and design, SOLID. These principles applied to a system tend to make this maintainable and extendable.
 
-To further create abstraction from the provided .DLL and follow the Dependency-Inversion principle, the ATM makes use of a modified repository-pattern\footnote{\url{https://msdn.microsoft.com/en-us/library/ff649690.aspx}}. This allows for a quick change in the data-source to a database for example.
+To create abstraction from the provided .DLL and follow the Dependency-Inversion principle, the ATM makes use of a modified repository-pattern\footnote{\url{https://msdn.microsoft.com/en-us/library/ff649690.aspx}}. This allows for a quick change in the data-source to a database for example.
 
 Another heavily used pattern is the Observer Pattern\footnote{\url{https://msdn.microsoft.com/en-us/library/ee850490.aspx}}, it is in charge of notifying observers about data change, making it possible to only update the user-interface whenever new data is present.
 
-Two sequence-diagrams for the back-end can be seen in figure \ref{fig:MonitorSeq} and \ref{fig:SWTTransponderSeq}. Where the repository-pattern is used to connect the two sequence-diagrams, thereby connection the monitor to the data-source, in this case the provided .dll.
+Two sequence-diagrams for the back-end can be seen in figure \ref{fig:MonitorSeq} and \ref{fig:SWTTransponderSeq}. The repository-pattern is used to connect the two sequence-diagrams, thereby connecting the monitor to the data-source, in this case the provided .dll.
 
-The Console Application follows the Single Responsibility to certain degree, where our Notification- and MonitoredTrackInfoDisplayer only has one responsibilty; Formatting data to construct a List of strings. The way those two classes are implemented involves The Open Close principle aswell. They both uses an interface IRenderable; It opens several advantages towards test-, maintain- and extendability, and aswell a easier code to read. We chose to give the UI an Observer Pattern where it only refreshed the rendering when there is a new Airspacelog event.  
-\begin{figure}
+The Console Application follows the Single Responsibility to a certain degree, where our Notification- and MonitoredTrackInfoDisplayer only has one responsibilty; Formatting data to construct a List of strings. The way those two classes are implemented involves The Open/Closed principle as well. They both use an interface IRenderable; It opens several advantages towards test-, maintain- and extendability, and as well an easier code to read. 
+\begin{figure}[h!]
 	\centering
 	\includegraphics[width=1.0\linewidth]{Images/MonitorSeq}
 	\caption{Sequence diagram for monitor}
 	\label{fig:MonitorSeq}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[h!]
 	\centering
 	\includegraphics[width=1.0\linewidth]{Images/SWTTransponder}
 	\caption{Sequence diagram for data acquisition from the transponder .DLL}
 	\label{fig:SWTTransponderSeq}
 \end{figure}
-
+\clearpage
 \subsection{Implementation}
 
-The modification made to the repository-pattern only allows for reads in the repository, the interface can be seen in the 'IReadOnlyRepository', then a implementation of the interface can be seen in 'ReadOnlyListRepository', allowing reads from an in-memory list, but it could also be a database or another data-source.
+The modification made to the repository-pattern only allows for reads in the repository, the interface can be seen in the 'IReadOnlyRepository', then an implementation of the interface can be seen in 'ReadOnlyListRepository', allowing reads from an in-memory list, but it could also be a database or another data-source.
 
 A choice was made to only include the provided .dll in the UI project, thereby keeping the core-project clean of any unneeded dependencies. So if a change were to be made in the .dll, the core does not need to be recompiled and thereby avoiding redeployment to any of clients distributed that may not need the update. 
 
 % I don't think there is much to write for UI, unless we want redundant text from Design and Considuration
-\clearpage

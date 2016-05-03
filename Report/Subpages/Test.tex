@@ -30,5 +30,12 @@
 	Since the provided .dll provides 'random' data, the choice was made to not including this in integrations-tests, since it could be a couple of minutes before a separation happened, creating long test-suite execution times. 
 	
 	\subsection{Jenkins}
-	Jenkins\footnote{\url{https://jenkins.io/}} is a server-side software package that enabled continuous integration(CI) on a given project. On the ATM, when code gets pushed to the repository Jenkins will first run a build \& all of the unit-tests, if this succeeds, Jenkins will subsequent run integration-tests. Once approved it will finally run code metrics, where both maintainability-index and FxCop violations will calculated.
-	
+	Jenkins\footnote{\url{https://jenkins.io/}} is a server-side software package that enabled continuous integration(CI) on a given project. On the ATM, when code gets pushed to the repository Jenkins will first run a build on all of the unit-tests, if this succeeds, Jenkins will subsequent run integration-tests. Once approved it will finally run code metrics, where both maintainability-index and FxCop violations will calculated. 
+	As the software began to work some effort was put into fixing the FxCop violations. As seen in figure \ref{fig:FxCop} it was brought down to an acceptable level.
+	\begin{figure}{ht!}
+		\centering
+		\includegraphics[width=0.8\linewidth]{"Images/FxCop"}
+		\caption{FxCop violations during the process}
+		\label{fig:FxCop}
+	\end{figure}
+	\clearpage
