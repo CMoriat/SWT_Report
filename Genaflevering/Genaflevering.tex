@@ -1,0 +1,38 @@
+\input{../Preamble/Preamble}
+
+\begin{document}
+	
+	\begin{center}
+		\textsc{\large I4SWT Mandatory Exercise}\\[0.5cm]
+		
+		\textsc{\Large Team 16-1-6 - Genaflevering}\\
+		\begin{center}
+			\begin{tabular}{l l l}
+				\textbf{Name} & \textbf{Student ID} & \textbf{E-mail} \\
+				Ao Li & \textsl{201407737} &  liao0452@gmail.com  \\
+				Cecilie Bendorff Moriat & \textsl{201405949} & ceciliemoriat@gmail.com \\
+				Jonas Møgelvang Hansen & \textsl{201407199} & jonas.jmh@gmail.com \\
+				Morten Sand Knudsen & \textsl{201270955} & mortensandknudsen@gmail.com \\
+				
+			\end{tabular}
+		\end{center}
+	\end{center}
+	
+	Hvis vi skulle lave ATM igen, ville vi flytte klasserne IRenderable, ItrackRender,
+	MonitoredTrackInfoDisplayer, NotificationDisplayer og TrackRender op i vores Monitor projekt, da dette
+	svarer til vores ”buisness logic layer”, og disse klasser hører til under der.
+	
+	For at lave en bedre coverage på TrackRender ville der skulle tilføjes adskillige test. Fokus områderne i
+	disse test ville ligge i:
+	TrackRender funktionen vil blive testet ved at mocke monitoren ud.
+	
+	Da TrackRender indeholder mange private funktioner og en print funktion. Vil disse ikke give mening at
+	teste, da man tester interfacet for klassen.
+	Hvis vi ville have 100\% coverage på TrackRender klassen, skulle alle funktioner som var værd at teste flyttes
+	ud i deres egen seperate klasse, og unit testes der.
+	
+	F.eks. funktionen AirspaceLogEventToString vil kunne lægges i sin egen klasse og unit testes ved at man
+	Tager en airspaceLogEventArgs og laver det om det det korekte string format.
+	Grunden til to integrations tests er ...
+	
+\end{document}
