@@ -22,4 +22,11 @@
 	Klassen \texttt{TrackRender} indeholder businesslogic, hvilket burde flyttes i en klasse i business logic layer, så Single Responsibility Principle er overholdt. Dette vil også gøre funktionaliteten testbar.\\
 	Klassen \texttt{SWTTransponder} kunne ændres til at blive baseret på interfacet fra .dll'en for at vi ville kunne teste den i stedet for at være afhængig af factory'en, som den er nu. Dette kunne gøres ved brug af constructor injection. Det vil samtidigt åbne op for muligheden for at skrive flere og bedre integrationstest.\\
 	\texttt{Console.Writeline()} burde fjernes fra \texttt{TrackRender}, da dette ikke kan testes. Et Console-interface kunne bruges til at skrive til konsol for at \texttt{TrackRender} kan abstrahere fra konsollen og derved gøre det testbart.
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=1\linewidth]{classdiagram}
+		\label{fig:classdiagram}
+	\end{figure}
+
 \end{document}
